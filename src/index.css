@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --nav-h: 4rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-night-950 font-sans text-parchment antialiased;
+    overflow-x: clip;
+  }
+
+  section[id],
+  #certifications {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: rgba(217, 178, 95, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #e8cc85;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .glass {
+    @apply rounded-2xl border border-white/[0.08] bg-night-800/60 shadow-panel backdrop-blur-md;
+  }
+
+  .hairline {
+    @apply border-gold-400/20;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[13px] text-parchment/90;
+  }
+
+  .mono-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-gold-400 text-night-950 hover:bg-gold-300 active:translate-y-px;
+    box-shadow: 0 8px 30px -10px rgba(217, 178, 95, 0.6);
+  }
+
+  .btn-secondary {
+    @apply btn border border-gold-400/40 text-gold-200 hover:border-gold-300 hover:bg-gold-400/10 active:translate-y-px;
+  }
+
+  /* Thin gold corner brackets: the "ornamental border" used on key panels. */
+  .ornate {
+    position: relative;
+    --orn: rgba(217, 178, 95, 0.55);
+    --orn-len: 16px;
+  }
+  .ornate::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    pointer-events: none;
+    z-index: 1;
+    background:
+      linear-gradient(var(--orn), var(--orn)) top left / var(--orn-len) 1px no-repeat,
+      linear-gradient(var(--orn), var(--orn)) top left / 1px var(--orn-len) no-repeat,
+      linear-gradient(var(--orn), var(--orn)) top right / var(--orn-len) 1px no-repeat,
+      linear-gradient(var(--orn), var(--orn)) top right / 1px var(--orn-len) no-repeat,
+      linear-gradient(var(--orn), var(--orn)) bottom left / var(--orn-len) 1px no-repeat,
+      linear-gradient(var(--orn), var(--orn)) bottom left / 1px var(--orn-len) no-repeat,
+      linear-gradient(var(--orn), var(--orn)) bottom right / var(--orn-len) 1px no-repeat,
+      linear-gradient(var(--orn), var(--orn)) bottom right / 1px var(--orn-len) no-repeat;
+    transition: inset 0.4s ease, opacity 0.4s ease;
+  }
+  .ornate-hover:hover::before {
+    inset: 5px;
+  }
+
+  /* Octagonal seal used for section numbers */
+  .oct {
+    clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  }
+
+  /* Aged parchment scroll for quotes */
+  .parchment {
+    position: relative;
+    padding: 1.4rem 2rem;
+    text-align: center;
+    border-radius: 6px;
+    background:
+      radial-gradient(120% 90% at 50% 50%, #efe1bd 0%, #e2cd9b 60%, #c9ad74 100%);
+    box-shadow:
+      inset 0 0 30px rgba(120, 80, 30, 0.35),
+      0 14px 30px -14px rgba(0, 0, 0, 0.8);
+  }
+  .parchment::before,
+  .parchment::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    width: 14px;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #a98552, #e6d3a6 45%, #9c7a45);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  .parchment::before {
+    left: -6px;
+  }
+  .parchment::after {
+    right: -6px;
+  }
+
+  /* Skills laboratory backdrop: deep navy, faint vertical grain, scattered dust,
+     soft localized glows. Pure CSS, no images. */
+  .lab-bg {
+    background-color: #070b18;
+    background-image:
+      radial-gradient(40% 35% at 18% 40%, rgba(79, 141, 255, 0.07), transparent 70%),
+      radial-gradient(40% 35% at 55% 35%, rgba(240, 166, 60, 0.06), transparent 70%),
+      radial-gradient(40% 40% at 85% 45%, rgba(161, 113, 255, 0.07), transparent 70%),
+      radial-gradient(45% 35% at 30% 90%, rgba(52, 209, 166, 0.06), transparent 70%),
+      radial-gradient(45% 35% at 78% 90%, rgba(228, 95, 191, 0.06), transparent 70%),
+      radial-gradient(circle, rgba(243, 226, 179, 0.32) 0.7px, transparent 1.2px),
+      radial-gradient(circle, rgba(243, 226, 179, 0.18) 0.6px, transparent 1px),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 7px);
+    background-size: auto, auto, auto, auto, auto, 53px 61px, 97px 83px, auto;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 11px 7px, 41px 29px, 0 0;
+  }
+
+  .link-underline {
+    @apply underline decoration-gold-400/40 underline-offset-4 transition hover:decoration-gold-300;
+  }
+}
+
+/* ---------- 3D flip cards ---------- */
+.flip-scene {
+  perspective: 1800px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+/* Reduced motion: no rotation, a quick cross-fade between faces instead. */
+.flip-static .flip-inner,
+.flip-static .flip-inner.is-flipped {
+  transform: none;
+  transition: none;
+}
+.flip-static .flip-back {
+  transform: none;
+}
+.flip-static .flip-face {
+  transition: opacity 0.2s ease;
+}
+.flip-static .flip-face[data-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Gentle drift for decorative elements; disabled by the reduced-motion rule above. */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 240s linear infinite;
+}
+.animate-spin-slower {
+  animation: spin-slow 360s linear infinite reverse;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -30px);
+  }
+}
+.animate-drift {
+  animation: drift 24s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scaleY(1);
+  }
+  30% {
+    opacity: 0.75;
+    transform: scaleY(0.94);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleY(1.05);
+  }
+}
+.animate-flicker {
+  animation: flicker 3.2s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+/* Potion bubbles drift up while the flask is hovered */
+@keyframes bubble {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-34px);
+    opacity: 0;
+  }
+}
+.potion-bubble {
+  opacity: 0.5;
+}
+.group:hover .potion-bubble,
+.group:focus-visible .potion-bubble {
+  animation: bubble 1.8s ease-in infinite;
+}
+
+/* Quiet, thin scrollbar on dark panels */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 178, 95, 0.35) transparent;
+}
