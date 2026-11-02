@@ -20,7 +20,7 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="h-full">
       <Panel className="flex h-full flex-col p-6 sm:p-9">
-        <SectionHeader id="contact" index="08" title="Let's Connect" />
+        <SectionHeader id="contact" index="07" title="Let's Connect" />
         <p className="mt-4 text-[15px] leading-relaxed text-parchment/80">
           Always open to new opportunities, collaborations and conversations about AI/ML, data science and data engineering.
         </p>

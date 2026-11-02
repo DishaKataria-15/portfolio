@@ -14,7 +14,7 @@ export function Achievements() {
   return (
     <section id="achievements" aria-labelledby="achievements-heading" className="h-full">
       <Panel className="h-full p-6 sm:p-9">
-        <SectionHeader id="achievements" index="07" title="Achievements & Certifications" />
+        <SectionHeader id="achievements" index="06" title="Achievements & Certifications" />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <div>

@@ -126,29 +126,29 @@ export const projects: Project[] = [
     accent: "emerald",
     visual: "recommender",
     summary:
-      "Built a movie recommendation engine using SVD-based collaborative filtering on the Netflix Prize dataset (24M+ ratings from 470K+ customers), reaching an RMSE of about 1.05 and generating personalised top-10 recommendations.",
+      "Analysed the Netflix Prize ratings (24M+ ratings, 470K+ customers) and built an SVD collaborative-filtering recommender, cross-validated at an RMSE of about 1.05 and used to generate personalised top-10 recommendations.",
     frontTags: ["Python", "SVD", "Surprise"],
-    technologies: ["Python", "Pandas", "NumPy", "Scikit-Surprise"],
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-Surprise"],
 
     objective: "Recommend movies each customer is likely to enjoy from a very large, sparse ratings dataset.",
     dataset: "Netflix Prize · 24M+ ratings · 470K+ customers · 4,499 movies",
     approach: [
-      "Parsed the raw Netflix Prize file into a structured dataset and analysed rating distributions to understand user behaviour.",
-      "Applied 60th-percentile filtering, keeping roughly the top 40% of most-rated movies and most-active customers, to cut sparsity and noise.",
-      "SVD-based collaborative filtering with the Scikit-Surprise library.",
+      "Parsed the raw Netflix Prize file (movie IDs interleaved with ratings) into a structured table and analysed the rating distribution.",
+      "Kept movies at or above the 60th percentile of rating counts (908+ ratings): 1,800 of 4,499 movies.",
+      "SVD collaborative filtering with the Scikit-Surprise library.",
     ],
     metrics: [
-      { label: "RMSE", value: "≈1.05", note: "3-fold cross-validation" },
+      { label: "RMSE", value: "≈1.05", note: "3-fold CV · 100K-rating sample" },
       { label: "Output", value: "Top-10", note: "personalised per user" },
     ],
     evaluation: {
-      method: "3-fold cross-validation",
+      method: "3-fold cross-validation on a 100,000-rating sample of the filtered data (fold RMSE 1.046, 1.046, 1.045).",
       columns: ["RMSE"],
       rows: [{ model: "SVD (collaborative filtering)", values: ["≈1.05"], highlight: true }],
     },
     implementation: [
-      "Predicted and ranked ratings for movies each customer had not yet rated to build their top-10 list.",
-      "Filtering reduced noise and improved training efficiency.",
+      "Predicted ratings for movies a sample customer had not rated and ranked them to produce a top-10 list.",
+      "Mapped movie IDs to titles using the Netflix movie-titles file.",
     ],
     githubUrl: "https://github.com/DishaKataria-15/Netflix-Recommendation-System",
   },
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     visual: "misinformation",
     collaborative: true,
     summary:
-      "Contributed to a team-built misinformation detection platform using BERT and RoBERTa. I supported data analysis, model evaluation documentation and real-time spread monitoring.",
+      "Team project: a misinformation detection platform using BERT and RoBERTa. My part was data analysis, documenting the model evaluation workflow, and the real-time spread monitoring.",
     frontTags: ["BERT", "RoBERTa", "NLP"],
     technologies: ["Python", "Machine Learning", "BERT", "RoBERTa", "NLP"],
 
@@ -172,18 +172,10 @@ export const projects: Project[] = [
       "Real-time analysis mechanisms for monitoring how flagged items spread.",
     ],
     metrics: [],
-    evaluation: {
-      method: "Model evaluation workflow documented by the team to choose an architecture for deployment.",
-      columns: ["Result"],
-      rows: [
-        { model: "BERT-based classifier", values: [null] },
-        { model: "RoBERTa-based classifier", values: [null] },
-      ],
-      note: "Evaluation figures are not published on this site.",
-    },
     implementation: [
-      "My contribution: data analysis and documentation of the model evaluation workflow.",
-      "Collaborated on the real-time spread analysis mechanisms.",
+      "Data analysis of the training data to guide model choice.",
+      "Documented the evaluation workflow the team used to compare the BERT and RoBERTa models and pick one for deployment.",
+      "Collaborated on the real-time mechanisms that track how flagged items spread.",
     ],
     githubUrl: "https://github.com/DishaKataria-15/fake-news-detection-platform",
   },

@@ -10,6 +10,8 @@ export const profile = {
     "a final-year CSE student exploring the magic of AI, Data Science and Data Engineering to build real-world solutions.",
   initials: "DK",
   eyebrow: "Computer Science • AI & Data",
+  /** Plain facts shown first in the hero, for screeners. */
+  roleLine: "Final-year B.Tech CSE · AI/ML & Data · Indore, India",
   headline: "AI/ML • Data Science • Data Engineering",
   intro:
     "I build data-driven solutions using machine learning, analytical methods and programming, from cleaning and exploring datasets to training and evaluating models.",
@@ -42,7 +44,6 @@ export const socials: SocialLink[] = [
 export const about = {
   subtitle: "More than just a student…",
   lead: "A curious mind, a problem solver and an aspiring AI & Data Engineer. I love exploring how data, algorithms and technology can create meaningful impact in the real world.",
-  traits: ["Analytical Thinker", "Continuous Learner", "Problem Solver", "Team Player"],
   quote: "Like magic, data reveals what's invisible. And I love discovering those hidden stories.",
   /** Book spines in the owl illustration, top to bottom. */
   bookLabels: ["Curiosity", "Data", "Algorithms", "Real-world Impact"],
@@ -76,7 +77,6 @@ export const navItems = [
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "journey", label: "Journey" },
-  { id: "education", label: "Education" },
   { id: "achievements", label: "Achievements" },
   { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },

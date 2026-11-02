@@ -1,4 +1,4 @@
-import type { EducationEntry, JourneyEntry } from "./types";
+import type { JourneyEntry } from "./types";
 
 /** Timeline for the Journey section, newest first (left to right on desktop). */
 export const journey: JourneyEntry[] = [
@@ -29,30 +29,5 @@ export const journey: JourneyEntry[] = [
     title: "Class X",
     institution: "Sri Sathya Sai Vidya Vihar, Indore",
     facts: [{ label: "Score", value: "95%" }],
-  },
-];
-
-export const degree = {
-  qualification: "B.Tech, Computer Science & Engineering",
-  institution: "Acropolis Institute of Technology & Research, Indore",
-  graduation: "June 2027",
-  cgpa: "8.56",
-  cgpaScale: "10",
-};
-
-export const schooling: EducationEntry[] = [
-  {
-    id: "class-12",
-    qualification: "Class XII",
-    institution: "The Millennium School, Indore",
-    year: "2023",
-    score: "84.4%",
-  },
-  {
-    id: "class-10",
-    qualification: "Class X",
-    institution: "Sri Sathya Sai Vidya Vihar, Indore",
-    year: "2021",
-    score: "95%",
   },
 ];

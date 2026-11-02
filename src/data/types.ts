@@ -136,11 +136,3 @@ export interface JourneyEntry {
   facts: { label: string; value: string }[];
   current?: boolean;
 }
-
-export interface EducationEntry {
-  id: string;
-  qualification: string;
-  institution: string;
-  year: string;
-  score: string;
-}

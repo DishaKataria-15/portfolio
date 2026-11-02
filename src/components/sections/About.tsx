@@ -1,9 +1,6 @@
-import { Lightbulb, Puzzle, ScanSearch, Users } from "lucide-react";
 import { about } from "../../data/profile";
 import { Panel, Section, SectionHeader } from "../ui/Section";
 import { OwlStudy } from "../art/OwlStudy";
-
-const traitIcons = [ScanSearch, Lightbulb, Puzzle, Users];
 
 export function About() {
   return (
@@ -22,21 +19,7 @@ export function About() {
             ))}
           </div>
 
-          <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:pl-16" aria-label="How I work">
-            {about.traits.map((t, i) => {
-              const Icon = traitIcons[i % traitIcons.length];
-              return (
-                <li key={t} className="group flex flex-col items-center text-center">
-                  <span className="grid h-14 w-14 place-items-center rounded-full border border-gold-400/50 bg-night-950/60 text-gold-300 shadow-[0_0_20px_-6px_rgba(217,178,95,0.6)] transition duration-300 group-hover:border-gold-300 group-hover:shadow-[0_0_26px_-4px_rgba(217,178,95,0.8)]">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                  <span className="mt-2 text-[13px] leading-snug text-parchment/85">{t}</span>
-                </li>
-              );
-            })}
-          </ul>
-
-          <figure className="parchment mt-9 sm:ml-16">
+          <figure className="parchment mt-8 sm:ml-16">
             <blockquote className="font-serif text-xl leading-snug text-[#3b2a16] sm:text-[1.35rem]">“{about.quote}”</blockquote>
           </figure>
         </div>

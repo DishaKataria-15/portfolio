@@ -237,7 +237,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               )}
 
               <section>
-                <BackHeading accent={a.text}>Implementation</BackHeading>
+                <BackHeading accent={a.text}>{project.collaborative ? "My contribution" : "Implementation"}</BackHeading>
                 <ul className="mt-2 space-y-1.5">
                   {project.implementation.map((s) => (
                     <li key={s.slice(0, 30)} className="flex gap-2.5 text-[13.5px] leading-relaxed text-mist">
